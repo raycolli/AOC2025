@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from math import ceil, floor
 
 def parse_ranges(path):
