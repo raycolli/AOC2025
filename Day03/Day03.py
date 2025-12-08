@@ -1,6 +1,6 @@
 LIMIT = 12
 
-def max_joltage_pt_two(s: str) -> int:
+def max_joltage_part2(s: str) -> int:
     to_remove = len(s) - LIMIT
     stack = []
 
@@ -16,7 +16,7 @@ def max_joltage_pt_two(s: str) -> int:
         joltage = joltage * 10 + int(d)
     return joltage
 
-def max_joltage_pt_one(s: str) -> int:
+def max_joltage_part1(s: str) -> int:
     if not s:
         return 0
     max_joltage = 0
@@ -29,20 +29,20 @@ def max_joltage_pt_one(s: str) -> int:
         max_joltage = max(max_joltage, bl, br)
     return max_joltage
 
-def main(file_path: str, part_two: bool = True) -> int:
+def main(file_path: str, part2: bool = True) -> int:
     total = 0
     with open(file_path, "r") as f:
         for line in f:
             line = line.strip()
             if not line:
                 continue
-            if part_two:
-                total += max_joltage_pt_two(line)
+            if part2:
+                total += max_joltage_part2(line)
             else:
-                total += max_joltage_pt_one(line)
+                total += max_joltage_part1(line)
     return total
 
 if __name__ == "__main__":
-    file_path = "input.txt" 
-    print("Part One:", main(file_path, part_two=False))
-    print("Part Two:", main(file_path, part_two=True))
+    file_path = "input.txt"
+    print("Part1:", main(file_path, part2=False))
+    print("Part2:", main(file_path, part2=True))
